@@ -1,19 +1,25 @@
 let slideIndex = 1;
-showSlides(slideIndex);
+const slideCountTotal = 8;
+
+for (let i = 1; i <= slideCountTotal; i++) {
+    showSlides(slideIndex, i);
+}
+
 
 // Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function plusSlides(n, slideCount) {
+    showSlides(slideIndex += n, slideCount);
 }
 
 // Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function currentSlide(n, slideCount) {
+    showSlides(slideIndex = n, slideCount);
 }
 
-function showSlides(n) {
+function showSlides(n, slideCount) {
+    
     let i;
-    let slides = document.getElementsByClassName("mySlides");
+    let slides = document.getElementsByClassName("mySlides" + slideCount);
     let dots = document.getElementsByClassName("dot");
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
